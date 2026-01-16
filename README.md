@@ -8,7 +8,7 @@ Este projeto é um **molde HTML único** para publicar demos de jogos exportados
 - `jogo.html` → jogo exportado
 - `config.xlsx` → configura layout, anúncios e botões
 
-## Preparando progama (config.xlsx)
+## Preparando programa (config.xlsx)
 
 ### Linha 0
 | Coluna | Função |
@@ -39,14 +39,14 @@ Nenhuma modificação de código necessária.
 - Projeto gerado com auxílio de Inteligência Artificial
 
 Use com responsabilidade. Ou não, o problema não é meu.
-### viva o codigo livre, viva o open-source
+### Viva o codigo livre, viva o open-source
 
 #### Redes Sociais
 - [discord (para contato)](https://discord.com/app)
 - [instagram]()
 - [youtube](https://youtube.com/)
 
-## Licensa de uso: Ao usar este progama, automaticamente estara concordando com a licensa abaixo
+## Licensa de uso: Ao usar este programa, automaticamente estara concordando com a licensa abaixo
 
 ### Permissões
 Você **PODE**:
