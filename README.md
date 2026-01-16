@@ -41,6 +41,5 @@ Nenhuma modificação de código necessária.
 Use com responsabilidade. Ou não, o problema não é meu.
 ### viva o codigo livre, viva o open-source
 
-# Licensa de uso:
-## Ao usar este progama, automaticamente estara concordando com a licensa abaixo
+## Licensa de uso: Ao usar este progama, automaticamente estara concordando com a licensa abaixo
 `a definir`
