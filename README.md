@@ -42,5 +42,33 @@ Nenhuma modificação de código necessária.
 Use com responsabilidade. Ou não, o problema não é meu.
 ### viva o codigo livre, viva o open-source
 
+#### Redes Sociais
+[discord (para contato)](https://discord.com/app)
+[instagram]()
+[youtube](https://youtube.com/)
+
 ## Licensa de uso: Ao usar este progama, automaticamente estara concordando com a licensa abaixo
-`a definir`
+
+### Permissões
+Você **PODE**:
+- Usar este projeto para qualquer finalidade, pessoal ou pública
+- Modificar o código livremente
+- Redistribuir o projeto original ou modificado
+
+### Obrigações
+Você **DEVE**:
+- Manter os **créditos do projeto original** em qualquer redistribuição
+- Incluir um **link para o repositório oficial** do projeto
+- Dar **créditos claros** ao projeto original em qualquer modificação ou derivação
+
+### Restrições
+Você **NÃO PODE**:
+- Declarar este projeto como sendo de sua autoria exclusiva
+- Remover ou ocultar os créditos do projeto original
+- Solicitar patente, registro de propriedade intelectual ou qualquer forma de exclusividade
+- Vender este projeto ou qualquer versão derivada como produto proprietário
+
+### Observações
+- O código é fornecido **“como está”**, sem garantias
+- Nada do que for feito a partir deste codigo é responsabilidade do criador
+- Este projeto existe para promover **código livre, open-source e acessível**
