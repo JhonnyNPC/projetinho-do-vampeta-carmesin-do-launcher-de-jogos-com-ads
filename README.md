@@ -8,7 +8,7 @@ Este projeto é um **molde HTML único** para publicar demos de jogos exportados
 - `jogo.html` → jogo exportado
 - `config.xlsx` → configura layout, anúncios e botões
 
-## Configuração do Excel
+## Preparando progama (config.xlsx)
 
 ### Linha 0
 | Coluna | Função |
@@ -28,7 +28,7 @@ Este projeto é um **molde HTML único** para publicar demos de jogos exportados
 
 ## Como usar
 1. Substitua `jogo.html`
-2. Edite `config.xlsx`
+2. Edite `config.xlsx` como mostrado na seção anterior
 3. Publique tudo (Vercel, GitHub Pages, etc)
 
 Nenhuma modificação de código necessária.
