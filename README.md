@@ -38,4 +38,9 @@ Nenhuma modificação de código necessária.
 - Suporta Adsense e outros sistemas de ads via iframe
 - Projeto gerado com auxílio de Inteligência Artificial
 
-Use com responsabilidade. Ou não.
+Use com responsabilidade. Ou não, o problema não é meu.
+### viva o codigo livre, viva o open-source
+
+# Licensa de uso:
+## Ao usar este progama, automaticamente estara concordando com a licensa abaixo
+`a definir`
