@@ -38,7 +38,6 @@ Nenhuma modificação de código necessária.
 - Compatível com jogos exportados pelo TurboWarp Packager
 - Suporta Adsense e outros sistemas de ads via iframe
 - Projeto gerado com auxílio de Inteligência Artificial
-- Em caso de problemas juridicos, a legislação em vigor é a do Distrito Federal, Brasil e quem perder paga os custos de adivocacia de ambas as partes
 
 Use com responsabilidade. Ou não, o problema não é meu.
 ### viva o codigo livre, viva o open-source
@@ -73,3 +72,4 @@ Você **NÃO PODE**:
 - O código é fornecido **“como está”**, sem garantias
 - Nada do que for feito a partir deste codigo é responsabilidade do criador
 - Este projeto existe para promover **código livre, open-source e acessível**
+- Em caso de problemas juridicos, a legislação em vigor é a do Distrito Federal, Brasil e quem perder paga os custos de adivocacia de ambas as partes
