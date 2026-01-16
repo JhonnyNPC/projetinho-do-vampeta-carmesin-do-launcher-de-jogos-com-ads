@@ -1,4 +1,5 @@
 # Game Monetization HTML Template
+`este projeto, em sua versão original, utilisa UTF-8 e esta em pt-BR`
 
 Este projeto é um **molde HTML único** para publicar demos de jogos (ex: TurboWarp)
 com anúncios e botões configuráveis sem alterar código.
