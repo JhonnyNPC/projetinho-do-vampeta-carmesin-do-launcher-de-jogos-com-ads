@@ -111,7 +111,27 @@ fetch('config.xlsx')
     document.getElementById('content').innerText = header[2] || '';
 
     if (header[3]) {
-      document.getElementById('ad-container').innerHTML = header[3];
+      const adContainer = document.getElementById('ad-container');
+
+      const iframe = document.createElement('iframe');
+      iframe.style.border = 'none';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+
+      iframe.srcdoc = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <style>body{margin:0;padding:0;}</style>
+        </head>
+        <body>
+          ${header[3]}
+        </body>
+        </html>
+        `;
+  
+      adContainer.appendChild(iframe);
     }
 
     if (header[4]) {
