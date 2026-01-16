@@ -20,6 +20,8 @@ com anúncios e botões configuráveis sem alterar código.
 | E | Tamanho do iframe do anúncio |
 
 ### Linha 1+
+| Coluna | Função |
+|------|-------|
 | A | Ícone do botão |
 | B | URL |
 | C | Texto do botão |
