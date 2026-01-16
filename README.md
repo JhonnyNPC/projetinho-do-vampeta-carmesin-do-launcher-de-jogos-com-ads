@@ -43,9 +43,9 @@ Use com responsabilidade. Ou não, o problema não é meu.
 ### viva o codigo livre, viva o open-source
 
 #### Redes Sociais
-[discord (para contato)](https://discord.com/app)
-[instagram]()
-[youtube](https://youtube.com/)
+- [discord (para contato)](https://discord.com/app)
+- [instagram]()
+- [youtube](https://youtube.com/)
 
 ## Licensa de uso: Ao usar este progama, automaticamente estara concordando com a licensa abaixo
 
