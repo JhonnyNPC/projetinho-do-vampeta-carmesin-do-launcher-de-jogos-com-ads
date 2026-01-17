@@ -3,11 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Game Container</title>
-
+<link rel="icon" href="icon.png">
+  
 <style>
+
+:root {
+  --hover-color: #444;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background: #111;
+  background: #070707;
   color: #eee;
   margin: 0;
   padding: 20px;
@@ -43,6 +49,10 @@ body {
   font-size: 20px;
 }
 
+#title:hover {
+  color: var(--hover-color);
+}
+
 #content {
   display: none;
   margin-top: 5px;
@@ -60,10 +70,16 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px;
-  background: #222;
-  border: 1px solid #333;
+  padding: 10px;
+  background: transparent;
+  border: none;
   cursor: pointer;
+  color: inherit;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: linear-gradient(to right, transparent, var(--hover-color));
 }
 
 .button img {
@@ -100,14 +116,53 @@ fetch('config.xlsx')
 
     const header = rows[0];
 
-    // Linha 0 config
-    if (header[0]) {
-      const [h, w] = header[0].split('x').map(Number);
-      document.getElementById('game-container').style.height = h + 'px';
-      document.getElementById('game-container').style.width = w + 'px';
+    const root = document.documentElement;
+
+    if (header[5]) root.style.setProperty('--hover-color', header[5]);
+    if (header[6]) document.body.style.background = header[6];
+    if (header[7]) document.body.style.fontFamily = header[7];
+
+    if (header[8]) {
+      document.body.style.color = header[8];
+    } else if (header[6]) {
+      document.body.style.color =
+        parseInt(header[6].replace('#',''),16) > 0xffffff/2 ? '#000' : '#fff';
     }
 
+    
+    // Linha 0 config
+    let gameH = 360, gameW = 480;
+  let adH = 360, adW = 360;
+
+  if (header[0]) {
+    [gameH, gameW] = header[0].split('x').map(Number);
+  }
+
+  if (header[4]) {
+    [adH, adW] = header[4].split('x').map(Number);
+  }
+
+  const finalH = Math.max(gameH, adH);
+  
+  const game = document.getElementById('game-container');
+  const ad = document.getElementById('ad-container');
+  const top = document.getElementById('top');
+
+  game.style.height = finalH + 'px';
+  game.style.width = gameW + 'px';
+
+  ad.style.height = finalH + 'px';
+  ad.style.width = adW + 'px';
+
+  top.style.marginTop = '5px';
+
+
     document.getElementById('title').innerText = header[1] || '';
+
+    if (header[1]) {
+      document.title = header[1];
+    }
+
     document.getElementById('content').innerText = header[2] || '';
 
     if (header[3]) {
