@@ -135,40 +135,49 @@ fetch('config.xlsx')
     
     // Linha 0 config
     let gameH = 360, gameW = 480;
-  let adH = 360, adW = 360;
+    let adH = 360, adW = 360;
 
-  if (header[0]) {
-    [gameH, gameW] = header[0].split('x').map(Number);
-  }
+    if (header[0]) {
+      [gameH, gameW] = header[0].split('x').map(Number);
+    }
 
-  if (header[4]) {
-    [adH, adW] = header[4].split('x').map(Number);
-  }
+    if (header[4]) {
+      [adH, adW] = header[4].split('x').map(Number);
+    }
 
-  const finalH = Math.max(gameH, adH);
+    const finalH = Math.max(gameH, adH);
   
-  const game = document.getElementById('game-container');
-  const ad = document.getElementById('ad-container');
-  const top = document.getElementById('top');
+    const game = document.getElementById('game-container');
+    const ad = document.getElementById('ad-container');
+    const top = document.getElementById('top');
 
-  game.style.height = finalH + 'px';
-  game.style.width = gameW + 'px';
+    game.style.height = finalH + 'px';
+    game.style.width = gameW + 'px';
 
-  ad.style.height = finalH + 'px';
-  ad.style.width = adW + 'px';
+    ad.style.height = finalH + 'px';
+    ad.style.width = adW + 'px';
 
-  const totalWidth = gameW + adW + 5;
-  const maxWidth = window.innerWidth - 10;
+    const totalWidth = gameW + adW + 5;
+    const maxWidth = window.innerWidth - 10;
 
-  if (totalWidth > maxWidth) {
-    const scale = maxWidth / totalWidth;
+    console.log({
+      gameW,
+      adW,
+      totalWidth,
+      maxWidth,
+      innerWidth: window.innerWidth
+    });
 
-    game.style.width  = Math.floor(gameW * scale) + 'px';
-    game.style.height = Math.floor(finalH * scale) + 'px';
+    
+    if (totalWidth > maxWidth) {
+      const scale = maxWidth / totalWidth;
 
-    ad.style.width  = Math.floor(adW * scale) + 'px';
-    ad.style.height = Math.floor(finalH * scale) + 'px';
-}
+      game.style.width  = Math.floor(gameW * scale) + 'px';
+      game.style.height = Math.floor(finalH * scale) + 'px';
+
+      ad.style.width  = Math.floor(adW * scale) + 'px';
+      ad.style.height = Math.floor(finalH * scale) + 'px';
+  }
 
     
   top.style.marginTop = '5px';
