@@ -1,19 +1,13 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <title>Game Container</title>
-<link rel="icon" href="icon.png">
-  
+
 <style>
-
-:root {
-  --hover-color: #444;
-}
-
 body {
   font-family: Arial, sans-serif;
-  background: #070707;
+  background: #111;
   color: #eee;
   margin: 0;
   padding: 20px;
@@ -21,17 +15,14 @@ body {
 
 #top {
   display: flex;
-  gap: 5px;
-  margin: 5px;
+  gap: 10px;
 }
 
-
-#game-container,
-#ad-container {
-  width: auto;
-  height: auto;
+#game-container {
+  width: 480px;
+  height: 360px;
+  border: 1px solid #333;
 }
-
 
 #game-container iframe {
   width: 100%;
@@ -39,14 +30,17 @@ body {
   border: none;
 }
 
+#ad-container {
+  width: 360px;
+  height: 360px;
+  border: 1px solid #333;
+  overflow: hidden;
+}
+
 #title {
   margin-top: 15px;
   cursor: pointer;
   font-size: 20px;
-}
-
-#title:hover {
-  color: var(--hover-color);
 }
 
 #content {
@@ -66,16 +60,10 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
-  background: transparent;
-  border: none;
+  padding: 8px;
+  background: #222;
+  border: 1px solid #333;
   cursor: pointer;
-  color: inherit;
-  transition: background 0.3s;
-}
-
-.button:hover {
-  background: linear-gradient(to right, transparent, var(--hover-color));
 }
 
 .button img {
@@ -112,81 +100,24 @@ fetch('config.xlsx')
 
     const header = rows[0];
 
-    const root = document.documentElement;
-
-    if (header[5]) root.style.setProperty('--hover-color', header[5]);
-    if (header[6]) document.body.style.background = header[6];
-    if (header[7]) document.body.style.fontFamily = header[7];
-
-    if (header[8]) {
-      document.body.style.color = header[8];
-    } else if (header[6]) {
-      document.body.style.color =
-        parseInt(header[6].replace('#',''),16) > 0xffffff/2 ? '#000' : '#fff';
-    }
-
-    
     // Linha 0 config
-    let gameH = 360, gameW = 480;
-    let adH = 360, adW = 360;
-
     if (header[0]) {
-      [gameH, gameW] = header[0].split('x').map(Number);
+      const [h, w] = header[0].split('x').map(Number);
+      document.getElementById('game-container').style.height = h + 'px';
+      document.getElementById('game-container').style.width = w + 'px';
     }
-
-    if (header[4]) {
-      [adH, adW] = header[4].split('x').map(Number);
-    }
-
-    const game = document.getElementById('game-container');
-    const ad = document.getElementById('ad-container');
-    const top = document.getElementById('top');
-
-    top.style.margin = '5px';
-    top.style.gap = '5px';
-
-    function ajustarLayout() {
-      const margemTotal = 5 * 2; // esquerda + direita
-      const gap = 5;
-      const larguraDisponivel = window.innerWidth - margemTotal - gap;
-
-      const proporcaoGame = gameW / gameH;
-      const proporcaoAd = adW / adH;
-
-      let alturaFinal = gameH;
-
-      let larguraGame = alturaFinal * proporcaoGame;
-      let larguraAd = alturaFinal * proporcaoAd;
-
-      const larguraTotal = larguraGame + larguraAd;
-
-      if (larguraTotal > larguraDisponivel) {
-        const fator = larguraDisponivel / larguraTotal;
-        alturaFinal *= fator;
-        larguraGame *= fator;
-        larguraAd *= fator;
-      }
-
-      game.style.height = alturaFinal + 'px';
-      game.style.width = larguraGame + 'px';
-
-      ad.style.height = alturaFinal + 'px';
-      ad.style.width = larguraAd + 'px';
-    }
-
-    ajustarLayout();
-    window.addEventListener('resize', ajustarLayout);
 
     document.getElementById('title').innerText = header[1] || '';
-    if (header[1]) document.title = header[1];
-
     document.getElementById('content').innerText = header[2] || '';
 
     if (header[3]) {
+      const adContainer = document.getElementById('ad-container');
+
       const iframe = document.createElement('iframe');
       iframe.style.border = 'none';
       iframe.style.width = '100%';
       iframe.style.height = '100%';
+
       iframe.srcdoc = `
         <!DOCTYPE html>
         <html>
@@ -198,8 +129,15 @@ fetch('config.xlsx')
           ${header[3]}
         </body>
         </html>
-      `;
-      ad.appendChild(iframe);
+        `;
+  
+      adContainer.appendChild(iframe);
+    }
+
+    if (header[4]) {
+      const [h, w] = header[4].split('x').map(Number);
+      document.getElementById('ad-container').style.height = h + 'px';
+      document.getElementById('ad-container').style.width = w + 'px';
     }
 
     // Toggle título
@@ -207,7 +145,6 @@ fetch('config.xlsx')
       const c = document.getElementById('content');
       c.style.display = c.style.display === 'none' ? 'block' : 'none';
     };
-
 
     // Botões
     for (let i = 1; i < rows.length; i++) {
@@ -233,7 +170,7 @@ fetch('config.xlsx')
       document.getElementById('buttons').appendChild(btn);
     }
   });
-  //za warudo! stop the time!
+  // Za Warudo! Stop The Time!
 </script>
 
 </body>
