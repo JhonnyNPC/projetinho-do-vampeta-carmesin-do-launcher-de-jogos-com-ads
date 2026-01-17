@@ -21,7 +21,10 @@ body {
 
 #top {
   display: flex;
-  gap: 10px;
+  gap: 5px;
+  margin: 5px;
+  width: calc(100vw - 10px);
+  box-sizing: border-box;
 }
 
 #game-container {
@@ -154,6 +157,20 @@ fetch('config.xlsx')
   ad.style.height = finalH + 'px';
   ad.style.width = adW + 'px';
 
+  const totalWidth = gameW + adW + 5;
+  const maxWidth = window.innerWidth - 10;
+
+  if (totalWidth > maxWidth) {
+    const scale = maxWidth / totalWidth;
+
+    game.style.width  = Math.floor(gameW * scale) + 'px';
+    game.style.height = Math.floor(finalH * scale) + 'px';
+
+    ad.style.width  = Math.floor(adW * scale) + 'px';
+    ad.style.height = Math.floor(finalH * scale) + 'px';
+}
+
+    
   top.style.marginTop = '5px';
 
 
