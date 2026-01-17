@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -21,10 +21,7 @@ body {
 
 #top {
   display: flex;
-  gap: 5px;
-  margin: 5px;
-  width: calc(100vw - 10px);
-  box-sizing: border-box;
+  gap: 10px;
 }
 
 #game-container {
@@ -135,51 +132,28 @@ fetch('config.xlsx')
     
     // Linha 0 config
     let gameH = 360, gameW = 480;
-    let adH = 360, adW = 360;
+  let adH = 360, adW = 360;
 
-    if (header[0]) {
-      [gameH, gameW] = header[0].split('x').map(Number);
-    }
-
-    if (header[4]) {
-      [adH, adW] = header[4].split('x').map(Number);
-    }
-
-    const finalH = Math.max(gameH, adH);
-  
-    const game = document.getElementById('game-container');
-    const ad = document.getElementById('ad-container');
-    const top = document.getElementById('top');
-
-    game.style.height = finalH + 'px';
-    game.style.width = gameW + 'px';
-
-    ad.style.height = finalH + 'px';
-    ad.style.width = adW + 'px';
-
-    const totalWidth = gameW + adW + 5;
-    const maxWidth = window.innerWidth - 10;
-
-    console.log({
-      gameW,
-      adW,
-      totalWidth,
-      maxWidth,
-      innerWidth: window.innerWidth
-    });
-
-    
-    if (totalWidth > maxWidth) {
-      const scale = maxWidth / totalWidth;
-
-      game.style.width  = Math.floor(gameW * scale) + 'px';
-      game.style.height = Math.floor(finalH * scale) + 'px';
-
-      ad.style.width  = Math.floor(adW * scale) + 'px';
-      ad.style.height = Math.floor(finalH * scale) + 'px';
+  if (header[0]) {
+    [gameH, gameW] = header[0].split('x').map(Number);
   }
 
-    
+  if (header[4]) {
+    [adH, adW] = header[4].split('x').map(Number);
+  }
+
+  const finalH = Math.max(gameH, adH);
+  
+  const game = document.getElementById('game-container');
+  const ad = document.getElementById('ad-container');
+  const top = document.getElementById('top');
+
+  game.style.height = finalH + 'px';
+  game.style.width = gameW + 'px';
+
+  ad.style.height = finalH + 'px';
+  ad.style.width = adW + 'px';
+
   top.style.marginTop = '5px';
 
 
